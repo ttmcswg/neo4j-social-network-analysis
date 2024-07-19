@@ -3,6 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "build": "npm run dev:clean",
+    "start": "npm run dev",
+    "dev": "npm run docker:start",
+    "dev:clean": "npm run docker:build",
+    "dev:stop": "npm run docker:stop",
+    "open:repo": "npm repo",
+    "docker:build": "docker-compose rm -f && docker-compose up --remove-orphans --build --force-recreate --renew-anon-volumes",
+    "docker:start": "docker-compose up",
+    "docker:stop": "docker-compose -v down && docker system prune -f --volumes"
   },
   "keywords": [],
   "author": "",
